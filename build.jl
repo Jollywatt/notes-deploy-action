@@ -146,8 +146,6 @@ function exportpermalinks(notes, dest="permalinks.csv")
 end
 
 
-norm
-
 function build(srcdir, targetdir)
 	srcdir = abspath(expanduser(srcdir))
 	targetdir = abspath(expanduser(targetdir))

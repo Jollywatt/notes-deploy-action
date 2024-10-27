@@ -14,6 +14,6 @@ runs:
   image: "docker://julia:1.10"
   args:
     - julia
-    - ./build.jl
+    - ${{ github.action_path }}/build.jl
     - ${{ inputs.source_directory }}
     - ${{ inputs.build_directory }}

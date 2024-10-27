@@ -10,10 +10,16 @@ inputs:
     default: "site/"
 
 runs:
-  using: "docker"
-  image: "docker://julia:1.10"
-  args:
-    - julia
-    - ${{ github.action_path }}/build.jl
-    - ${{ inputs.source_directory }}
-    - ${{ inputs.build_directory }}
+  using: "composite"
+  steps:
+    - name: Set up Julia
+      uses: julia-actions/setup-julia@v1
+      with:
+        version: '1.10'
+
+    - name: Run build script
+      run:
+        - julia
+        - $GITHUB_ACTION_PATH/build.jl
+        - ${{ inputs.source_directory }}
+        - ${{ inputs.build_directory }}

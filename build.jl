@@ -56,7 +56,13 @@ function findnotes(srcdir)
 		end
 	end
 
+	if length(notefiles) == 0
+		@info "Debug info" pwd() readdir()
+		error("Found no notes")
+	end
+
 	notekinds = Dict(name => notekind(byext) for (name, byext) in notefiles)
+
 
 	Dict(
 		name => (

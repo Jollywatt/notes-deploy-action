@@ -1,0 +1,19 @@
+name: 'GitHub Action to build a static notes site'
+inputs:
+  source_directory:
+    description: 'Path to notes directory'
+    required: true
+    default: "./"
+  build_directory:
+    description: 'Destination path for static site'
+    required: true
+    default: "site/"
+
+runs:
+  using: "docker"
+  image: "docker://julia:1.10"
+  args:
+    - julia
+    - ./build.jl
+    - ${{ inputs.source_directory }}
+    - ${{ inputs.build_directory }}

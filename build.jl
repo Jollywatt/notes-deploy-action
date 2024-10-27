@@ -71,7 +71,7 @@ end
 
 
 
-function totree(notes::Dict{String})
+function totree(notes::Dict)
 	paths = [(name => info) => info.dir for (name, info) in notes]
 	flattenned = sort!(paths, by=last)
 	totree(flattenned)

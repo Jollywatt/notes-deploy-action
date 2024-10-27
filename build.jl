@@ -77,7 +77,7 @@ function totree(notes::Dict)
 	totree(flattenned)
 end
 
-function totree(nodes::AbstractVector{<:Pair})
+function totree(nodes::AbstractVector)
 	tree = "root" => []
 	stack = [tree]
 	for (node, path) in nodes
